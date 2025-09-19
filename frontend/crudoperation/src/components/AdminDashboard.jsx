@@ -37,7 +37,7 @@ export default function AdminDashboard() {
     <div className="container mx-auto p-6">
       <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Admin Dashboard</h2>
 
-      {/* Products Section */}
+      
       <section className="mb-10">
         <h3 className="text-2xl font-semibold mb-4 text-gray-700">Products</h3>
         <div className="overflow-x-auto">
@@ -78,7 +78,7 @@ export default function AdminDashboard() {
         </div>
       </section>
 
-      {/* Users Section */}
+      
       <section>
         <h3 className="text-2xl font-semibold mb-4 text-gray-700">Users</h3>
         <div className="overflow-x-auto">

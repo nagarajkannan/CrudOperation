@@ -4,16 +4,16 @@ const auth = require('../middleware/auth');
 
 const router = express.Router();
 
-// Create product
+// create product
 router.post('/', auth, async (req, res) => {
   try {
     const { name, price, description, createdBy } = req.body;
     let ownerId = req.user._id;
 
-    // Admin can create for anyone
+    
     if (req.user.role === 'admin' && createdBy) ownerId = createdBy;
 
-    // Normal user cannot set createdBy manually
+ 
     if (req.user.role !== 'admin' && createdBy && createdBy.toString() !== req.user._id.toString()) {
       return res.status(403).json({ message: 'Users cannot create products for others' });
     }
@@ -32,7 +32,7 @@ router.post('/', auth, async (req, res) => {
   }
 });
 
-// List products
+// list products
 router.get('/', auth, async (req, res) => {
   try {
     const query = req.user.role === 'admin' ? {} : { createdBy: req.user._id };

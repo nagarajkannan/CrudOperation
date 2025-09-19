@@ -1,15 +1,14 @@
-// routes/users.js
 const express = require('express');
 const User = require('../models/User');
-const auth = require('../middleware/auth'); // middleware for JWT auth
-const { permit } = require('../middleware/roles'); // middleware for role-based access
+const auth = require('../middleware/auth'); 
+const { permit } = require('../middleware/roles'); 
 
 const router = express.Router();
 
-// 🔹 GET all users (admin only)
+
 router.get('/', auth, permit('admin'), async (req, res) => {
   try {
-    const users = await User.find().select('-password'); // exclude password
+    const users = await User.find().select('-password'); 
     res.json(users);
   } catch (err) {
     console.error(err);
@@ -17,7 +16,7 @@ router.get('/', auth, permit('admin'), async (req, res) => {
   }
 });
 
-// 🔹 DELETE a user (admin only)
+
 router.delete('/:id', auth, permit('admin'), async (req, res) => {
   try {
     const userId = req.params.id;
@@ -29,7 +28,7 @@ router.delete('/:id', auth, permit('admin'), async (req, res) => {
     const user = await User.findById(userId);
     if (!user) return res.status(404).json({ message: 'User not found' });
 
-    await user.deleteOne(); // safer than remove()
+    await user.deleteOne(); 
     res.json({ message: 'User removed successfully' });
   } catch (err) {
     console.error('DELETE /users/:id error:', err);

@@ -19,7 +19,7 @@ async function createAdmin() {
   });
 
   await admin.save();
-  console.log("✅ Admin created:", admin.email);
+  console.log("Admin created:", admin.email);
   process.exit();
 }
 

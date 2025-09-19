@@ -20,7 +20,7 @@ export default function Register({ onAuth }) {
         setUser(res.user);
         onAuth?.();
 
-        // Default redirect for normal users
+        
         navigate('/dashboard');
       } else {
         setError(res.message || 'Registration failed');

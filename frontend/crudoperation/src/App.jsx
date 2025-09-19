@@ -32,10 +32,10 @@ function App() {
           <Route path="/register" element={<Register onAuth={() => setUser(getCurrentUser())} />} />
           <Route path="/login" element={<Login onAuth={() => setUser(getCurrentUser())} />} />
 
-          {/* Admin Dashboard */}
+        
           <Route path="/admin" element={user && user.role === 'admin' ? <AdminDashboard /> : <Navigate to="/login" />} />
 
-          {/* User Dashboard */}
+          
           <Route path="/dashboard" element={user ? <UserDashboard /> : <Navigate to="/login" />} />
         </Routes>
       </div>

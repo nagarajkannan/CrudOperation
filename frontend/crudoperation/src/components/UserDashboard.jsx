@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { get, post, put, del } from '../utils/Api';
 
-// ---------------- Product Form ----------------
+
 function ProductForm({ onSaved, initial = {} }) {
   const [form, setForm] = useState({ name: '', price: 0, description: '' });
   const [loading, setLoading] = useState(false);
@@ -72,7 +72,7 @@ function ProductForm({ onSaved, initial = {} }) {
   );
 }
 
-// ---------------- User Dashboard ----------------
+
 export default function UserDashboard() {
   const [products, setProducts] = useState([]);
   const [editing, setEditing] = useState(null);

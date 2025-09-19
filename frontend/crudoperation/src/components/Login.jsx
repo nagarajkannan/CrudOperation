@@ -13,7 +13,7 @@ export default function Login({ onAuth }) {
     setError('');
 
     try {
-      const res = await post('/auth/login', form); // Works for both admin & user
+      const res = await post('/auth/login', form); 
 
       if (res.token) {
         setToken(res.token);
